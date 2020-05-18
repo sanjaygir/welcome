@@ -23,23 +23,38 @@ grails.project.dependency.resolution = {
 
     repositories {
         inherits true // Whether to inherit repository definitions from plugins
-
-        grailsPlugins()
+//		mavenRepo "https://repo.grails.org/grails/plugins/"
         grailsHome()
-        grailsCentral()
+//		mavenRepo "https://grails.org/plugins/"
+//		mavenRepo "https://repo1.maven.org/maven2/"
 
-        mavenLocal()
-        mavenCentral()
+        mavenRepo "http://nexus.nate-palmer.com/repository/repo.grails_proxy/"
+        mavenRepo "http://nexus.nate-palmer.com/repository/grails_proxy/"
+        mavenRepo "http://nexus.nate-palmer.com/repository/maven-central/"
+        mavenRepo "http://nexus.nate-palmer.com/repository/releases/"
+        mavenRepo "http://nexus.nate-palmer.com/repository/snapshots/"
 
-        // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
+//		mavenRepo "http://repository.springsource.com/maven/bundles/release"
+//		mavenRepo "http://repository.springsource.com/maven/libraries/release"
+
+        // uncomment these to enable remote dependency resolution from public Maven repositories
+        //mavenLocal()
         //mavenRepo "http://snapshots.repository.codehaus.org"
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+
+        // There are several older dependencies that are no longer available in maven.
+        // uncomment below to look through an archived version of grails
+//		grailsRepo "https://grails.org/plugins"
+
     }
 
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
+
+        runtime 'com.github.axet:vget:1.1.34'
+
 
         // runtime 'mysql:mysql-connector-java:5.1.20'
     }
