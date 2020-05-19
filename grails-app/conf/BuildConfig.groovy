@@ -55,6 +55,9 @@ grails.project.dependency.resolution = {
 
         runtime 'com.github.axet:vget:1.1.34'
 
+        runtime 'org.apache.poi:poi:3.17'
+        runtime 'org.apache.poi:poi-ooxml:3.17'
+
 
         // runtime 'mysql:mysql-connector-java:5.1.20'
     }
