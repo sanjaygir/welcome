@@ -9,6 +9,8 @@ import org.apache.poi.xslf.usermodel.XSLFTextShape
 
 class PowerpointController {
 
+    def grailsApplication
+
     def index() {
 
 
@@ -25,7 +27,7 @@ class PowerpointController {
 
         def name = params.name
 
-        def file = new File("/var/roadrace/upload/${name}.pptx")
+        def file = new File("${grailsApplication.config.uploadLocation}${name}.pptx")
 
         if (file.exists()) {
             response.setContentType("application/octet-stream")
@@ -37,8 +39,13 @@ class PowerpointController {
         render "done"
     }
 
-    def save(){
+    def downloadLink(){
 
+
+        [name: params.sname]
+    }
+
+    def save(){
 
         def slideName = params.slidename
 
@@ -69,7 +76,7 @@ class PowerpointController {
         }
 
         //create a file object
-        File file = new File("/var/roadrace/upload/${slideName}.pptx");
+        File file = new File("${grailsApplication.config.uploadLocation}${slideName}.pptx");
         FileOutputStream out = new FileOutputStream(file);
 
         //save the changes in a PPt document
@@ -77,6 +84,6 @@ class PowerpointController {
         System.out.println("slide cretated successfully");
         out.close();
 
-        render "Complete"
+        redirect(action: "downloadLink", params: [sname: slideName])
     }
 }

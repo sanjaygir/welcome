@@ -89,3 +89,18 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+environments {
+    development {
+        uploadLocation = "test/"
+    }
+    test {
+
+    }
+    production {
+        uploadLocation = "/var/roadrace/upload/"
+    }
+}
+
+

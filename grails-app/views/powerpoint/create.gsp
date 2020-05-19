@@ -9,17 +9,20 @@
 <html>
 <head>
     <title></title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
 </head>
 
 <body>
 
-
-
+<div class="w3-container" style="width: 80%; margin: auto;">
 
     <g:form action="save">
 
-
-        <g:textField name="slidename"></g:textField>
+        <label>Presentation Name</label>
+        <g:textField name="slidename" class="w3-input w3-border"></g:textField>
 
         <g:hiddenField name="slidesnum" value="${num}"></g:hiddenField>
 
@@ -30,17 +33,23 @@
 
         <g:each in="${1..num}" var="i">
 
-        <g:textField name="title[${i}]"></g:textField>
+            <label>Title</label>
+        <g:textField name="title[${i}]" class="w3-input  w3-border"></g:textField>
 
-        <g:textArea name="content[${i}]"></g:textArea>
+            <label>Content</label>
+        <g:textArea name="content[${i}]" class="w3-input  w3-border" rows="8"></g:textArea>
+
+            <hr>
 
         <br>
 
     </g:each>
 
-
-        <g:submitButton name="submit" value="Submit"></g:submitButton>
+        <g:submitButton name="submit" value="Submit" class="w3-btn w3-blue-grey"></g:submitButton>
     </g:form>
+
+
+</div>
 
 </body>
 </html>
