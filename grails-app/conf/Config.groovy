@@ -93,7 +93,7 @@ log4j = {
 
 environments {
     development {
-        uploadLocation = "test/"
+        uploadLocation = "/var/roadrace/upload/"
     }
     test {
 
