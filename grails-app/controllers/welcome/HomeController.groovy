@@ -12,6 +12,20 @@ import org.apache.poi.xslf.usermodel.XSLFTextShape
 
 class HomeController {
 
+
+    def download(){
+        def file = new File("/var/roadrace/upload/sanjax.pptx")
+
+        if (file.exists()) {
+            response.setContentType("application/octet-stream")
+            response.setHeader("Content-disposition", "filename=${file.name}")
+            response.outputStream << file.bytes
+            return
+        }
+
+        render "done"
+    }
+
     def index() {
 
         //creating presentation
